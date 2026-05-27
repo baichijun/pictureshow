@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { useAdminAuth } from '@/hooks/useAdminAuth'
 import type { AlbumOverride, ProcessedAlbum } from '@/types/gallery'
 import { loadLocalOverrides, reorderImages, saveLocalOverrides } from '@/utils/albumUtils'
+import { assetUrl } from '@/utils/assetUrl'
 
 interface AdminPanelProps {
   albums: ProcessedAlbum[]
@@ -126,7 +127,7 @@ export default function AdminPanel({ albums, onUpdate }: AdminPanelProps) {
                   key={img.id}
                   className="flex items-center gap-3 rounded-lg border border-[#262626] bg-black p-2"
                 >
-                  <img src={img.thumbUrl} alt="" className="h-12 w-16 rounded object-cover" />
+                  <img src={assetUrl(img.thumbUrl)} alt="" className="h-12 w-16 rounded object-cover" />
                   <span className="flex-1 truncate text-sm">{img.fileName}</span>
                   <div className="flex gap-1">
                     <button

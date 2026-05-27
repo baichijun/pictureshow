@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import type { ProcessedAlbum } from '@/types/gallery'
+import { assetUrl } from '@/utils/assetUrl'
 
 interface AlbumRowProps {
   album: ProcessedAlbum
@@ -24,7 +25,7 @@ export default function AlbumRow({ album, index }: AlbumRowProps) {
         {/* 封面图 */}
         <div className="relative aspect-[4/3] overflow-hidden sm:aspect-[16/7]">
           <img
-            src={album.coverUrl}
+            src={assetUrl(album.coverUrl)}
             alt={album.displayTitle}
             loading="lazy"
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"

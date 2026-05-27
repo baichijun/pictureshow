@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import type { GalleryImage } from '@/types/gallery'
+import { assetUrl } from '@/utils/assetUrl'
 
 interface LightboxProps {
   images: GalleryImage[]
@@ -84,7 +85,7 @@ export default function Lightbox({ images, currentIndex, onClose, onChange }: Li
         <AnimatePresence mode="wait" custom={direction}>
           <motion.img
             key={image.id}
-            src={image.originalUrl}
+            src={assetUrl(image.originalUrl)}
             alt={image.fileName}
             custom={direction}
             variants={slideVariants}

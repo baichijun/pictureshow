@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Lightbox from './Lightbox'
 import type { ProcessedAlbum } from '@/types/gallery'
+import { assetUrl } from '@/utils/assetUrl'
 
 interface AlbumDetailProps {
   albums: ProcessedAlbum[]
@@ -71,7 +72,7 @@ export default function AlbumDetail({ albums }: AlbumDetailProps) {
             className="group relative aspect-[4/3] overflow-hidden rounded-xl border border-[#262626] bg-[#111111] focus:outline-none focus:ring-2 focus:ring-indigo-500"
           >
             <img
-              src={image.thumbUrl}
+              src={assetUrl(image.thumbUrl)}
               alt={image.fileName}
               loading="lazy"
               className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"

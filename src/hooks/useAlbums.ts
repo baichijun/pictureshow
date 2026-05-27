@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import type { AlbumsData, OverridesData, ProcessedAlbum } from '@/types/gallery'
 import { applyOverrides, loadLocalOverrides, mergeOverrides } from '@/utils/albumUtils'
+import { dataUrl } from '@/utils/assetUrl'
 
 /** 加载并处理相册数据 */
 export function useAlbums() {
@@ -12,8 +13,8 @@ export function useAlbums() {
     try {
       setLoading(true)
       const [albumsRes, overridesRes] = await Promise.all([
-        fetch('/data/albums.json'),
-        fetch('/data/overrides.json'),
+        fetch(dataUrl('albums.json')),
+        fetch(dataUrl('overrides.json')),
       ])
 
       if (!albumsRes.ok) throw new Error('无法加载相册数据，请先运行 npm run sync')
