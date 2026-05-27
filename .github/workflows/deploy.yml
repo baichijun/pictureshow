@@ -28,7 +28,9 @@ jobs:
       - run: npm ci
       - run: node scripts/create-sample.mjs
       - run: npm run sync
-      - run: cross-env GITHUB_PAGES=true npm run build
+      - run: npm run build
+        env:
+          GITHUB_PAGES: 'true'
 
       - uses: actions/upload-pages-artifact@v3
         with:
