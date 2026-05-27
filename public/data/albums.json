@@ -1,0 +1,119 @@
+{
+  "albums": [
+    {
+      "id": "示例相册",
+      "folderName": "示例相册",
+      "title": "示例相册",
+      "count": 4,
+      "coverUrl": "/gallery/示例相册/thumb/sample-1.jpg",
+      "images": [
+        {
+          "id": "示例相册-0-sample-1",
+          "fileName": "sample-1.jpg",
+          "thumbUrl": "/gallery/示例相册/thumb/sample-1.jpg",
+          "originalUrl": "/gallery/示例相册/orig/sample-1.jpg"
+        },
+        {
+          "id": "示例相册-1-sample-2",
+          "fileName": "sample-2.jpg",
+          "thumbUrl": "/gallery/示例相册/thumb/sample-2.jpg",
+          "originalUrl": "/gallery/示例相册/orig/sample-2.jpg"
+        },
+        {
+          "id": "示例相册-2-sample-3",
+          "fileName": "sample-3.jpg",
+          "thumbUrl": "/gallery/示例相册/thumb/sample-3.jpg",
+          "originalUrl": "/gallery/示例相册/orig/sample-3.jpg"
+        },
+        {
+          "id": "示例相册-3-sample-4",
+          "fileName": "sample-4.jpg",
+          "thumbUrl": "/gallery/示例相册/thumb/sample-4.jpg",
+          "originalUrl": "/gallery/示例相册/orig/sample-4.jpg"
+        }
+      ],
+      "updatedAt": "2026-05-27T08:51:50.409Z"
+    },
+    {
+      "id": "test-1-mi",
+      "folderName": "test-1-mi",
+      "title": "test-1-mi",
+      "count": 5,
+      "coverUrl": "/gallery/test-1-mi/thumb/初夏荷塘.jpg",
+      "images": [
+        {
+          "id": "test-1-mi-0-初夏荷塘",
+          "fileName": "初夏荷塘.jpg",
+          "thumbUrl": "/gallery/test-1-mi/thumb/初夏荷塘.jpg",
+          "originalUrl": "/gallery/test-1-mi/orig/初夏荷塘.jpg"
+        },
+        {
+          "id": "test-1-mi-1-蝶恋花",
+          "fileName": "蝶恋花.jpg",
+          "thumbUrl": "/gallery/test-1-mi/thumb/蝶恋花.jpg",
+          "originalUrl": "/gallery/test-1-mi/orig/蝶恋花.jpg"
+        },
+        {
+          "id": "test-1-mi-2-泸沽湖",
+          "fileName": "泸沽湖.jpg",
+          "thumbUrl": "/gallery/test-1-mi/thumb/泸沽湖.jpg",
+          "originalUrl": "/gallery/test-1-mi/orig/泸沽湖.jpg"
+        },
+        {
+          "id": "test-1-mi-3-晚霞广州",
+          "fileName": "晚霞广州.jpg",
+          "thumbUrl": "/gallery/test-1-mi/thumb/晚霞广州.jpg",
+          "originalUrl": "/gallery/test-1-mi/orig/晚霞广州.jpg"
+        },
+        {
+          "id": "test-1-mi-4-MVIMG_20260521_125609",
+          "fileName": "MVIMG_20260521_125609.jpg",
+          "thumbUrl": "/gallery/test-1-mi/thumb/MVIMG_20260521_125609.jpg",
+          "originalUrl": "/gallery/test-1-mi/orig/MVIMG_20260521_125609.jpg"
+        }
+      ],
+      "updatedAt": "2026-05-27T08:51:50.039Z"
+    },
+    {
+      "id": "test-2-haha",
+      "folderName": "test-2-haha",
+      "title": "test-2-haha",
+      "count": 5,
+      "coverUrl": "/gallery/test-2-haha/thumb/1.jpg",
+      "images": [
+        {
+          "id": "test-2-haha-0-1",
+          "fileName": "1.jpg",
+          "thumbUrl": "/gallery/test-2-haha/thumb/1.jpg",
+          "originalUrl": "/gallery/test-2-haha/orig/1.jpg"
+        },
+        {
+          "id": "test-2-haha-1-2",
+          "fileName": "2.jpg",
+          "thumbUrl": "/gallery/test-2-haha/thumb/2.jpg",
+          "originalUrl": "/gallery/test-2-haha/orig/2.jpg"
+        },
+        {
+          "id": "test-2-haha-2-3",
+          "fileName": "3.jpg",
+          "thumbUrl": "/gallery/test-2-haha/thumb/3.jpg",
+          "originalUrl": "/gallery/test-2-haha/orig/3.jpg"
+        },
+        {
+          "id": "test-2-haha-3-4",
+          "fileName": "4.jpg",
+          "thumbUrl": "/gallery/test-2-haha/thumb/4.jpg",
+          "originalUrl": "/gallery/test-2-haha/orig/4.jpg"
+        },
+        {
+          "id": "test-2-haha-4-5",
+          "fileName": "5.jpg",
+          "thumbUrl": "/gallery/test-2-haha/thumb/5.jpg",
+          "originalUrl": "/gallery/test-2-haha/orig/5.jpg"
+        }
+      ],
+      "updatedAt": "2026-05-27T08:51:50.408Z"
+    }
+  ],
+  "syncedAt": "2026-05-27T08:51:50.410Z"
+}

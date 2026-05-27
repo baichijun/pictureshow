@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #000000;
+  --color-text: #ffffff;
+  --color-muted: #a3a3a3;
+  --color-border: #262626;
+  --color-surface: #111111;
+  --color-accent-from: #6366f1;
+  --color-accent-to: #ec4899;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 渐变强调文字 */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-accent-from), var(--color-accent-to));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* 渐变按钮 */
+.gradient-btn {
+  background: linear-gradient(135deg, var(--color-accent-from), var(--color-accent-to));
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.gradient-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #111;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 3px;
+}

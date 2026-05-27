@@ -1,0 +1,45 @@
+import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
+import type { ProcessedAlbum } from '@/types/gallery'
+
+interface AlbumRowProps {
+  album: ProcessedAlbum
+  index: number
+}
+
+/** 首页相册行 - 每行展示一个图片集 */
+export default function AlbumRow({ album, index }: AlbumRowProps) {
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-50px' }}
+      transition={{ duration: 0.5, delay: index * 0.08 }}
+      className="mb-12 last:mb-0"
+    >
+      <Link
+        to={`/album/${album.id}`}
+        className="group block overflow-hidden rounded-2xl border border-[#262626] bg-[#111111] transition-colors hover:border-[#404040]"
+      >
+        {/* 封面图 */}
+        <div className="relative aspect-[4/3] overflow-hidden sm:aspect-[16/7]">
+          <img
+            src={album.coverUrl}
+            alt={album.displayTitle}
+            loading="lazy"
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+          <div className="absolute bottom-0 left-0 p-6 sm:p-8">
+            <h2 className="text-2xl font-semibold sm:text-3xl">
+              {album.displayTitle}
+              <span className="ml-2 text-lg font-normal text-[#a3a3a3]">
+                ({album.count})
+              </span>
+            </h2>
+          </div>
+        </div>
+      </Link>
+    </motion.article>
+  )
+}
