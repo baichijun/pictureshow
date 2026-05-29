@@ -49,6 +49,15 @@ npm run build
 
 将 `dist/` 目录部署到任意静态托管服务（GitHub Pages、Vercel 等）。
 
+## 自定义域名
+
+| 域名 | 角色 |
+|------|------|
+| `qiguangming.com` | 主域名 |
+| `ai.pictureshow-git.qiguangming.com` | 附加子域名（DNS 301 转发至主域名） |
+
+详细 DNS 配置见 [docs/custom-domains.md](docs/custom-domains.md)。
+
 ## 技术栈
 
 - React 19 + TypeScript
