@@ -29,8 +29,7 @@ jobs:
       - run: node scripts/create-sample.mjs
       - run: npm run sync
       - run: npm run build
-        env:
-          GITHUB_PAGES: 'true'
+        # 自定义域名 qiguangming.com 部署在根路径，不使用 /pictureshow/ 前缀
 
       - uses: actions/upload-pages-artifact@v3
         with:
