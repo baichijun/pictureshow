@@ -2,7 +2,7 @@
 export const DEPLOY_TARGETS = {
   github: {
     id: 'github',
-    domain: 'ai.pictureshow-git.qiguangming.com',
+    domain: 'ai-pictureshow-git.qiguangming.com',
     platform: 'GitHub Pages',
   },
   edgeone: {

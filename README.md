@@ -50,7 +50,7 @@ npm run build:github   # 或直接 npm run build
 git push origin main   # Actions 自动部署
 ```
 
-访问地址：**https://ai.pictureshow-git.qiguangming.com**
+访问地址：**https://ai-pictureshow-git.qiguangming.com**
 
 ### EdgeOne Pages（预留）
 

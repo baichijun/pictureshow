@@ -6,7 +6,7 @@
 
 | 平台 | 域名 | 状态 | 构建命令 |
 |------|------|------|----------|
-| GitHub Pages | `ai.pictureshow-git.qiguangming.com` | 已启用 | `npm run build:github` |
+| GitHub Pages | `ai-pictureshow-git.qiguangming.com` | 已启用 | `npm run build:github` |
 | EdgeOne Pages | `ai.pictureshow-edgeone-qiguangming.com` | 待部署 | `npm run build:edgeone` |
 
 域名配置源文件：`deploy/targets.json`  
@@ -16,26 +16,28 @@
 
 ## GitHub Pages（当前线上）
 
-### DNS 配置
+### DNS 配置（Cloudflare）
 
-在域名服务商添加 **CNAME** 记录：
+在 Cloudflare → `qiguangming.com` → **DNS** 添加：
 
-| 主机记录 | 类型 | 记录值 |
-|----------|------|--------|
-| `ai.pictureshow-git` | CNAME | `baichijun.github.io` |
+| 类型 | 名称 | 内容 | 代理状态 |
+|------|------|------|----------|
+| CNAME | `ai-pictureshow-git` | `baichijun.github.io` | 橙色或灰色云朵均可 |
+
+> `ai-pictureshow-git.qiguangming.com` 是一级子域名，Cloudflare 免费 Universal SSL 可正常覆盖。
 
 > CNAME 必须指向 `baichijun.github.io`，**不要**包含仓库名 `/pictureshow`。
 
 ### GitHub 仓库设置
 
 - Settings → Pages → **Build and deployment** 选择 **GitHub Actions**
-- 自定义域名填写：`ai.pictureshow-git.qiguangming.com`
+- 自定义域名填写：`ai-pictureshow-git.qiguangming.com`
 - 推送 `main` 分支后 Actions 自动构建部署
 
 ### 验证
 
 ```bash
-curl -I https://ai.pictureshow-git.qiguangming.com
+curl -I https://ai-pictureshow-git.qiguangming.com
 ```
 
 ---
@@ -54,6 +56,18 @@ npm run build:edgeone
 将 `dist/` 上传至 EdgeOne，并在控制台绑定 `ai.pictureshow-edgeone-qiguangming.com`。
 
 ---
+
+## 故障排查
+
+### `DNS_PROBE_FINISHED_NXDOMAIN`
+
+本地 DNS（如小米路由器）未同步记录。将电脑 DNS 改为 `223.5.5.5` / `8.8.8.8`，执行 `ipconfig /flushdns`。
+
+### `ERR_SSL_VERSION_OR_CIPHER_MISMATCH`
+
+若使用旧的多级子域名（如 `ai.pictureshow-git.qiguangming.com`）并开启 Cloudflare 橙色代理，免费 SSL 无法覆盖。请改用一级子域名 `ai-pictureshow-git.qiguangming.com`，或关闭代理（灰色云朵）。
+
+GitHub 签发证书后，在仓库 Settings → Pages 可勾选 **Enforce HTTPS**。
 
 ## 注意事项
 

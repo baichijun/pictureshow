@@ -1,10 +1,10 @@
 {
   "github": {
-    "domain": "ai.pictureshow-git.qiguangming.com",
+    "domain": "ai-pictureshow-git.qiguangming.com",
     "platform": "GitHub Pages",
     "dns": {
       "type": "CNAME",
-      "host": "ai.pictureshow-git",
+      "host": "ai-pictureshow-git",
       "value": "baichijun.github.io"
     }
   },

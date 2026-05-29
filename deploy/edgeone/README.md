@@ -37,7 +37,7 @@ npm run build:edgeone
 
 | 项目 | GitHub Pages | EdgeOne |
 |------|--------------|---------|
-| 域名 | `ai.pictureshow-git.qiguangming.com` | `ai.pictureshow-edgeone-qiguangming.com` |
+| 域名 | `ai-pictureshow-git.qiguangming.com` | `ai.pictureshow-edgeone-qiguangming.com` |
 | 构建命令 | `npm run build:github` | `npm run build:edgeone` |
 | 触发方式 | push 到 `main` 自动部署 | 手动上传或后续配置 CI |
 
