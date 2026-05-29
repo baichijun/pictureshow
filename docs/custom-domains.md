@@ -1,60 +1,62 @@
-# 自定义域名配置
+# 多平台部署与域名
 
-本项目通过 GitHub Pages 部署，支持以下访问方式。
+本项目支持两个独立部署目标，各自使用专属域名，互不干扰。
 
-## 主域名
+## 部署目标
 
-| 域名 | 说明 |
-|------|------|
-| `qiguangming.com` | 主域名（`public/CNAME` 中配置） |
+| 平台 | 域名 | 状态 | 构建命令 |
+|------|------|------|----------|
+| GitHub Pages | `ai.pictureshow-git.qiguangming.com` | 已启用 | `npm run build:github` |
+| EdgeOne Pages | `ai.pictureshow-edgeone-qiguangming.com` | 待部署 | `npm run build:edgeone` |
 
-## 附加子域名
+域名配置源文件：`deploy/targets.json`  
+各平台 CNAME：`deploy/github/CNAME`、`deploy/edgeone/CNAME`
 
-| 域名 | 说明 |
-|------|------|
-| `ai.pictureshow-git.qiguangming.com` | 指向同一首页 |
+---
 
-> GitHub Pages **每个仓库只能绑定一个自定义域名**，因此子域名需在 DNS 服务商处配置转发，指向主域名。
+## GitHub Pages（当前线上）
 
-## DNS 配置（在域名服务商处操作）
+### DNS 配置
 
-### 1. 主域名 `qiguangming.com`（如已配置可跳过）
+在域名服务商添加 **CNAME** 记录：
 
-添加 4 条 **A 记录**，均指向 GitHub Pages IP：
+| 主机记录 | 类型 | 记录值 |
+|----------|------|--------|
+| `ai.pictureshow-git` | CNAME | `baichijun.github.io` |
 
-```
-185.199.108.153
-185.199.109.153
-185.199.110.153
-185.199.111.153
-```
+> CNAME 必须指向 `baichijun.github.io`，**不要**包含仓库名 `/pictureshow`。
 
-### 2. 子域名 `ai.pictureshow-git.qiguangming.com`
+### GitHub 仓库设置
 
-在 DNS 控制台添加 **URL 转发 / 301 重定向**：
+- Settings → Pages → **Build and deployment** 选择 **GitHub Actions**
+- 自定义域名填写：`ai.pictureshow-git.qiguangming.com`
+- 推送 `main` 分支后 Actions 自动构建部署
 
-| 字段 | 值 |
-|------|-----|
-| 主机记录 | `ai.pictureshow-git` |
-| 记录类型 | URL 转发（或 301 重定向） |
-| 目标地址 | `https://qiguangming.com` |
-
-若 DNS 服务商不支持 URL 转发，可改用 **CNAME** 指向 `baichijun.github.io`，然后在 GitHub 仓库 Settings → Pages 中将自定义域名改为该子域名（会替换主域名）。
-
-## 验证
-
-配置生效后（通常 5–30 分钟，最长 24 小时）：
+### 验证
 
 ```bash
-# 主域名
-curl -I https://qiguangming.com
-
-# 子域名（应 301 跳转到主域名）
 curl -I https://ai.pictureshow-git.qiguangming.com
 ```
 
+---
+
+## EdgeOne Pages（预留，尚未部署）
+
+详见 [deploy/edgeone/README.md](../deploy/edgeone/README.md)。
+
+本地预构建：
+
+```bash
+npm run sync
+npm run build:edgeone
+```
+
+将 `dist/` 上传至 EdgeOne，并在控制台绑定 `ai.pictureshow-edgeone-qiguangming.com`。
+
+---
+
 ## 注意事项
 
-- `public/CNAME` 文件只能包含一个域名，构建后会复制到 `dist/CNAME`
-- 请勿在仓库根目录创建 `CNAME`，否则会导致 Pages 发布源码而非构建产物
-- GitHub Pages 发布方式必须选择 **GitHub Actions**，不要选 “Deploy from a branch”
+- `public/` 目录**不再**放置 `CNAME`，构建时由 `scripts/build-deploy.mjs` 按目标写入
+- 请勿在仓库根目录创建 `CNAME`，否则会导致 Pages 发布源码
+- 两个版本共用同一代码，更新图片后分别 `sync` + 构建 + 部署到对应平台即可

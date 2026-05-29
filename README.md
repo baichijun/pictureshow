@@ -42,21 +42,27 @@ npm run dev
 
 ## 部署
 
+### GitHub Pages（线上）
+
 ```bash
 npm run sync
-npm run build
+npm run build:github   # 或直接 npm run build
+git push origin main   # Actions 自动部署
 ```
 
-将 `dist/` 目录部署到任意静态托管服务（GitHub Pages、Vercel 等）。
+访问地址：**https://ai.pictureshow-git.qiguangming.com**
 
-## 自定义域名
+### EdgeOne Pages（预留）
 
-| 域名 | 角色 |
-|------|------|
-| `qiguangming.com` | 主域名 |
-| `ai.pictureshow-git.qiguangming.com` | 附加子域名（DNS 301 转发至主域名） |
+```bash
+npm run sync
+npm run build:edgeone
+# 将 dist/ 上传至 EdgeOne 控制台
+```
 
-详细 DNS 配置见 [docs/custom-domains.md](docs/custom-domains.md)。
+域名：`ai.pictureshow-edgeone-qiguangming.com`（详见 [deploy/edgeone/README.md](deploy/edgeone/README.md)）
+
+多平台域名说明见 [docs/custom-domains.md](docs/custom-domains.md)。
 
 ## 技术栈
 

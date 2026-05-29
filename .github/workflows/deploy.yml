@@ -28,9 +28,7 @@ jobs:
       - run: npm ci
       - run: node scripts/create-sample.mjs
       - run: npm run sync
-      - run: npm run build
-      # SPA 路由：GitHub Pages 自定义域名需要 404.html 回退到 index.html
-      - run: cp dist/index.html dist/404.html
+      - run: npm run build:github
 
       - uses: actions/configure-pages@v4
       - uses: actions/upload-pages-artifact@v3

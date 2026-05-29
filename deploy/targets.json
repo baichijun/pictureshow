@@ -1,0 +1,21 @@
+{
+  "github": {
+    "domain": "ai.pictureshow-git.qiguangming.com",
+    "platform": "GitHub Pages",
+    "dns": {
+      "type": "CNAME",
+      "host": "ai.pictureshow-git",
+      "value": "baichijun.github.io"
+    }
+  },
+  "edgeone": {
+    "domain": "ai.pictureshow-edgeone-qiguangming.com",
+    "platform": "Tencent EdgeOne Pages",
+    "dns": {
+      "type": "CNAME",
+      "host": "ai.pictureshow-edgeone-qiguangming",
+      "value": "在 EdgeOne 控制台绑定域名后按提示填写"
+    },
+    "status": "pending"
+  }
+}

@@ -5,7 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -p tsconfig.app.json && vite build",
+    "build:vite": "tsc -p tsconfig.app.json && vite build",
+    "build": "npm run build:github",
+    "build:github": "node scripts/build-deploy.mjs github",
+    "build:edgeone": "node scripts/build-deploy.mjs edgeone",
     "preview": "vite preview",
     "sync": "node scripts/sync-pictures.mjs",
     "sync:watch": "node scripts/sync-pictures.mjs --watch"
