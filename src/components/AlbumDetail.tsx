@@ -14,6 +14,11 @@ export default function AlbumDetail({ albums }: AlbumDetailProps) {
   const { albumId } = useParams<{ albumId: string }>()
   const album = albums.find((a) => a.id === albumId)
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
+  const [erroredImages, setErroredImages] = useState<Set<string>>(new Set())
+
+  const handleImageError = useCallback((imageId: string) => {
+    setErroredImages((prev) => new Set(prev).add(imageId))
+  }, [])
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
@@ -71,12 +76,19 @@ export default function AlbumDetail({ albums }: AlbumDetailProps) {
             onClick={() => setLightboxIndex(index)}
             className="group relative aspect-[4/3] overflow-hidden rounded-xl border border-[#262626] bg-[#111111] focus:outline-none focus:ring-2 focus:ring-indigo-500"
           >
+          {erroredImages.has(image.id) ? (
+            <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[#1a1a2e] to-[#16213e]">
+              <span className="text-2xl opacity-20">{image.fileName.charAt(0)}</span>
+            </div>
+          ) : (
             <img
               src={assetUrl(image.thumbUrl)}
               alt={image.fileName}
               loading="lazy"
+              onError={() => handleImageError(image.id)}
               className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
             />
+          )}
           </motion.button>
         ))}
       </div>
