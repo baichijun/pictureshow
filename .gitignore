@@ -27,3 +27,10 @@ Thumbs.db
 # Logs
 *.log
 npm-debug.log*
+
+# Python (desktop-sync 打包/缓存产物)
+__pycache__/
+*.pyc
+desktop-sync/build/
+desktop-sync/dist/
+desktop-sync/*.spec
