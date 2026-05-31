@@ -42,6 +42,10 @@ export default function Header({ isAdmin = false }: HeaderProps) {
           <Link to="/" className="transition-colors hover:text-white">
             相册
           </Link>
+          {/* 说明页：介绍项目技术特点与使用说明 */}
+          <Link to="/guide" className="transition-colors hover:text-white">
+            说明
+          </Link>
           {/* 齿轮/设置图标，替代原“登录”文字，仍触发原登录/管理跳转 */}
           <Link
             to={isAdmin ? '/admin' : '/admin/login'}

@@ -1,8 +1,8 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import type { ProcessedAlbum } from '@/types/gallery'
 import { assetUrl } from '@/utils/assetUrl'
+import LazyImage from './LazyImage'
 
 interface AlbumRowProps {
   album: ProcessedAlbum
@@ -11,8 +11,6 @@ interface AlbumRowProps {
 
 /** 首页相册行 - 每行展示一个图片集 */
 export default function AlbumRow({ album, index }: AlbumRowProps) {
-  const [imgError, setImgError] = useState(false)
-
   return (
     <motion.article
       initial={{ opacity: 0, y: 40 }}
@@ -27,19 +25,13 @@ export default function AlbumRow({ album, index }: AlbumRowProps) {
       >
         {/* 封面图 */}
         <div className="relative aspect-[4/3] overflow-hidden sm:aspect-[16/7]">
-          {imgError ? (
-            <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[#1a1a2e] to-[#16213e]">
-              <span className="text-5xl opacity-30">{album.displayTitle.charAt(0)}</span>
-            </div>
-          ) : (
-            <img
-              src={assetUrl(album.coverUrl)}
-              alt={album.displayTitle}
-              loading="lazy"
-              onError={() => setImgError(true)}
-              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-          )}
+          <LazyImage
+            src={assetUrl(album.coverUrl)}
+            alt={album.displayTitle}
+            fallbackChar={album.displayTitle.charAt(0)}
+            fallbackClassName="text-5xl"
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
           <div className="absolute bottom-0 left-0 p-6 sm:p-8">
             <h2 className="text-2xl font-semibold sm:text-3xl">

@@ -72,6 +72,44 @@ export default function AdminPanel({ albums, onUpdate }: AdminPanelProps) {
         </button>
       </div>
 
+      {/* 桌面同步工具下载 */}
+      <div className="mb-8 rounded-2xl border border-[#262626] bg-[#111111] p-6">
+        <h2 className="mb-1 text-lg font-semibold">同步工具下载</h2>
+        <p className="mb-4 text-sm text-[#a3a3a3]">
+          把工具放进任意图片文件夹并双击运行，即可将该文件夹作为相册增量同步到网站
+          （文件夹名即相册名，只上传网站上还没有的新图片）。
+        </p>
+        <div className="flex flex-wrap gap-3">
+          <a
+            href={assetUrl('downloads/pictureshow同步.py')}
+            download="pictureshow同步.py"
+            className="gradient-btn inline-flex items-center gap-2 rounded-lg px-5 py-2 text-sm font-medium text-white"
+          >
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16" />
+            </svg>
+            下载同步脚本（.py）
+          </a>
+          <a
+            href={assetUrl('downloads/build-exe.bat')}
+            download="build-exe.bat"
+            className="inline-flex items-center gap-2 rounded-lg border border-[#262626] px-5 py-2 text-sm text-[#a3a3a3] transition-colors hover:text-white"
+          >
+            打包 exe 脚本（.bat）
+          </a>
+          <a
+            href={assetUrl('downloads/使用说明.md')}
+            download="使用说明.md"
+            className="inline-flex items-center gap-2 rounded-lg border border-[#262626] px-5 py-2 text-sm text-[#a3a3a3] transition-colors hover:text-white"
+          >
+            使用说明（.md）
+          </a>
+        </div>
+        <p className="mt-3 text-xs text-[#666]">
+          需 Python 3 运行；首次运行需粘贴具有写入权限的 GitHub Token。详见「使用说明」。
+        </p>
+      </div>
+
       <div className="grid gap-6 lg:grid-cols-[240px_1fr]">
         {/* 相册列表 */}
         <aside className="space-y-2">

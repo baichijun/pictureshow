@@ -43,7 +43,24 @@ const fallback404 = join(DIST, '404.html')
 copyFileSync(indexHtml, fallback404)
 console.log('✓ 404.html（SPA 回退）')
 
-// 4. 写入部署元信息，便于排查
+// 4. 从 desktop-sync 刷新桌面同步工具到 downloads/（保证下载到最新版本）
+const downloadsDir = join(DIST, 'downloads')
+mkdirSync(downloadsDir, { recursive: true })
+const syncDir = join(ROOT, 'desktop-sync')
+const downloadFiles = [
+  ['pictureshow同步.py', 'pictureshow同步.py'],
+  ['build-exe.bat', 'build-exe.bat'],
+  ['README.md', '使用说明.md'],
+]
+for (const [src, dest] of downloadFiles) {
+  const srcPath = join(syncDir, src)
+  if (existsSync(srcPath)) {
+    copyFileSync(srcPath, join(downloadsDir, dest))
+  }
+}
+console.log('✓ downloads/（桌面同步工具）')
+
+// 5. 写入部署元信息，便于排查
 mkdirSync(join(DIST, 'data'), { recursive: true })
 writeFileSync(
   join(DIST, 'data', 'deploy-info.json'),

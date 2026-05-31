@@ -6,6 +6,7 @@ import AlbumRow from './components/AlbumRow'
 import AlbumDetail from './components/AlbumDetail'
 import AdminLogin from './components/AdminLogin'
 import AdminPanel from './components/AdminPanel'
+import Guide from './components/Guide'
 import { useAlbums } from './hooks/useAlbums'
 import { useAdminAuth } from './hooks/useAdminAuth'
 
@@ -78,6 +79,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/album/:albumId" element={<AlbumPage />} />
+          <Route path="/guide" element={<Guide />} />
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/admin" element={<AdminPage />} />
         </Routes>
